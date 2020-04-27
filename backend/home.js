@@ -10,8 +10,9 @@ let arrHome = module.exports.arrHome = homeJson.map(h => ({
     rooms: h.rooms.map(a => ({id: a.id, roomName: a.roomName }))
     //rooms: h.rooms.map(a => JSON.stringify(({id: a.id, roomName: a.roomName })))
 }));
-
 //console.log(arrHome[0])
+
+
 
 mongoose.connect("mongodb://localhost:27017/user",
     { useUnifiedTopology: true, useNewUrlParser: true  },
@@ -21,45 +22,45 @@ mongoose.connect("mongodb://localhost:27017/user",
 });
 
 module.exports.createHome = function (user){
-
-}
-
-
-let newUser = new User({
-    _id: new mongoose.Types.ObjectId(),
-    email: "q@q",
-    password: "1",
-    surname: "As",
-    name: null,
-    age: "12",
-    gender: null,
-});
-
-for(let h of arrHome){
-    let home = new Home({
+    user = new User({
         _id: new mongoose.Types.ObjectId(),
-        id: h.id,
-        name: h.name,
-        rooms: []
+        email: "q@q",
+        password: "1",
+        surname: "As",
+        name: null,
+        age: "12",
+        gender: null,
     });
 
-    for(let r of h.rooms){
-        let room = new Room({
+    for(let h of arrHome){
+        let home = new Home({
             _id: new mongoose.Types.ObjectId(),
-            id: r.roomName,
-            roomName: r.id
+            id: h.id,
+            name: h.name,
+            rooms: []
         });
-        room.save();
-        home.rooms.push(room._id)
-    }
 
-    home.save();
-    newUser.home.push(home._id)
+        for(let r of h.rooms){
+            let room = new Room({
+                _id: new mongoose.Types.ObjectId(),
+                id: r.roomName,
+                roomName: r.id
+            });
+            room.save();
+            home.rooms.push(room._id)
+        }
+
+        home.save();
+        newUser.home.push(home._id)
+    }
+    user.save(function (err, user) {
+        if (err) throw err;
+        console.log(user)
+    });
+
 }
-newUser.save(function (err, user) {
-    if (err) throw err;
-    console.log(user)
-});
+
+
 
 
 
