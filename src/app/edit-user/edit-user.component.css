@@ -1,0 +1,103 @@
+
+
+.form{
+  border: 1px solid #C0C0C0;
+  margin: 20px;
+  padding: 10px;
+  width: 300px;
+  font-family: Arial;
+}
+
+.form h1{
+  margin-top: 0;
+}
+
+.form-controll {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  width: 280px;
+}
+
+.form-controll label {
+  display: block;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.form-controll input {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+
+}
+.form-controll input:focus{
+  box-shadow: 0 0 5px rgba(0,0,0,0.8);
+  outline: none;
+}
+
+.form-controll .ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+
+.form-controll .ng-valid.ng-touched{
+  border: 1px solid green;
+}
+
+.form .form-controll input.invalid{
+  border: 1px solid red;
+}
+
+.form .form-controll input.valid{
+  border: 1px solid green;
+}
+
+.validation {
+  margin-top: 5px;
+  color: red;
+  font-size: 14px;
+}
+
+.btn {
+  display: block;
+  background: #333333;
+  color: #fff;
+  padding: 5px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin: 30px auto 5px auto;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn:disabled{
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.gender {
+  display: flex;
+}
+.gender > label{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+.radio label{
+  margin-left: 30px;
+  font-size: 16px;
+}
+
+
+
+
+/*font-weight: bold;
+  font-size: 16px;*/

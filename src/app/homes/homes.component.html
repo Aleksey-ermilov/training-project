@@ -1,0 +1,158 @@
+
+
+<div class="box">
+  <div class="blockSelect">
+    <h1 class="h3">Home</h1>
+
+    <div class="dropdown">
+      <button class="btn  btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+        {{ textBtn }}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+        <span *ngFor="let home of arrHome" (click)="onClickSelect(home)"
+              class="dropdown-item" >
+          {{ home.name }}
+        </span>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="editBox">
+    <h1 class="h3">Edit home</h1>
+
+    <div class="divBox">
+      <input [(ngModel)]="home.name" class="form-control float-left" placeholder="edit home"
+             [class.border-danger]="(home.name.trim() == '') ? true : false"
+      >
+      <button
+        (click)="onClickBtn()" class="form-control float-left"
+        [class.border-danger]="(home.name.trim() == '') ? true : false"
+      >edit</button>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="box">
+
+
+  <div class="blockSelect">
+    <h1 class="h3">Rooms</h1>
+
+    <div class="dropdown">
+      <button class="btn  btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+        {{ textBtnRoom }}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+        <span *ngFor="let room of rooms" (click)="onClickRoomSelect(room)"
+              class="dropdown-item" >
+          {{ room.roomName  }}
+        </span>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="editBox">
+    <h1 class="h3">Edit rooms</h1>
+
+    <div class="divBox">
+      <input [(ngModel)]="room.roomName" class="form-control float-left" placeholder="edit home"
+             [class.border-danger]="(room.roomName.trim() == '') ? true : false"
+      >
+      <button
+        (click)="onClickBtnRoom()" class="form-control float-left"
+        [class.border-danger]="(room.roomName.trim() == '') ? true : false"
+      >edit</button>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="box">
+  <div class="blockSelect">
+    <h1 class="h3">Home</h1>
+
+    <div class="dropdown">
+      <button class="btn  btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+        {{ textBtn }}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+        <span *ngFor="let home of arrHome" (click)="onClickSelect(home)"
+           class="dropdown-item" >
+          {{ home.name }}
+        </span>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="editBox">
+    <h1 class="h3">Edit </h1>
+
+    <div class="divBox">
+      <input [(ngModel)]="home.name" class="form-control float-left" placeholder="edit home"
+             [class.border-danger]="(home.name.trim() == '') ? true : false"
+      >
+      <button
+        (click)="onClickBtn()" class="form-control float-left"
+        [class.border-danger]="(home.name.trim() == '') ? true : false"
+      >edit</button>
+    </div>
+
+  </div>
+
+</div>
+-->

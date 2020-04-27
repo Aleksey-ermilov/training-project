@@ -1,0 +1,15 @@
+.active a{
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover{
+    text-decoration: none;
+    color: blue;
+}
+
+li{
+    display: inline-block;
+    margin-left: 20px;
+}

@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+.blockSelect,
+.editBox,
+.infoBox{
+  margin-bottom: 40px;
+  width: 300px;
+}
+
+.divBox{width: 600px;}
+
+.divBox input{
+  width: 300px;
+  border-radius:.25rem 0  0 .25rem;
+}
+
+.divBox button{
+  width: 70px;
+  border-radius: 0 .25rem .25rem 0;
+  margin-left: -1px;
+}
+
+.divBox .form-control{
+  box-shadow: none;
+}
+
+.box{
+  margin-left: 20px;
+  margin-top: 70px;
+}
+
+
+/*
+.blockSelect button{
+  width: 200px;
+}
+.dropdown-menu{
+  width: 200px;
+}
+*/
+
+
+span{
+  cursor: pointer;
+}

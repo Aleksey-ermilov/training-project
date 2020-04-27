@@ -1,0 +1,33 @@
+<nav>
+    <ul>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a [routerLink]="['']">Главная</a></li>
+        <li
+                routerLinkActive="active"
+                *ngIf="!myServer.authorizationUser()"
+        >
+            <a [routerLink]="['/authorization']" >Авторизация</a></li>
+        <li
+                routerLinkActive="active"
+                *ngIf="!myServer.authorizationUser()"
+        >
+            <a [routerLink]="['/registration']" >Регистрация</a></li>
+
+        <li
+                routerLinkActive="active"
+                *ngIf="myServer.authorizationUser()"
+        >
+          <a [routerLink]="['/editUser']" >Редактирвать профиль</a></li>
+        <li
+                routerLinkActive="active"
+                *ngIf="myServer.authorizationUser()"
+        >
+          <a [routerLink]="['/homes']" >Homes</a></li>
+        <li
+                routerLinkActive="active"
+                *ngIf="myServer.authorizationUser()"
+        >
+            <a href="#" (click)="logout()">Выход</a></li>
+
+    </ul>
+</nav>

@@ -1,0 +1,105 @@
+<div>
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Регистрация</h1>
+
+    <!--<pre>{{ form.get('surname').errors | json }}</pre>-->
+
+    <div class = "form-controll">
+      <label>Email: </label>
+      <input type="email" formControlName="email" placeholder="Email">
+      <div class="validation"
+           *ngIf="form.get('email').invalid && form.get('email').touched"
+      >
+        <span
+          *ngIf="form.get('email').errors.required"
+        >The email field cannot be empty</span>
+
+        <span
+          *ngIf="form.get('email').errors.email"
+        >Incorrect email</span>
+      </div>
+    </div>
+
+
+    <div class = "form-controll">
+      <label>Пароль: </label>
+      <input type="password" formControlName="password" placeholder="Password">
+      <div class="validation"
+           *ngIf="form.get('password').invalid && form.get('password').touched"
+      >
+        <span
+          *ngIf="form.get('password').errors.required"
+        >The password field cannot be empty</span>
+      </div>
+    </div>
+    <div class = "form-controll">
+      <label>Пароль ещё раз: </label>
+      <input type="password" formControlName="repeatPassword" id="repeatPassword"
+             placeholder="Repeat password" [class.invalid]="!isEqual">
+      <div class="validation"
+           *ngIf="form.get('repeatPassword').invalid && form.get('repeatPassword').touched"
+      ><span
+        *ngIf="form.get('repeatPassword').errors.required"
+      >The password field cannot be empty</span>
+      </div>
+      <div class="validation"
+           *ngIf="!isEqual"
+      ><span>Password doesn't match</span>
+      </div>
+
+    </div>
+
+
+    <div class = "form-controll">
+      <label>Фамилия: </label>
+      <input type="text" formControlName="surname" placeholder="Surname">
+      <div class="validation"
+           *ngIf="form.get('surname').invalid && form.get('surname').touched"
+      >
+        <span
+          *ngIf="form.get('surname').errors.required"
+        >The surname field cannot be empty</span>
+        <span
+          *ngIf="form.get('surname').errors.pattern"
+        >The surname must begin with a capital letter</span>
+      </div>
+    </div>
+
+
+    <div class = "form-controll">
+      <label>Имя: </label>
+      <input type="text" formControlName="name" placeholder="Name">
+      <div class="validation"
+           *ngIf="form.get('name').invalid && form.get('name').touched"
+      >
+        <span
+          *ngIf="form.get('name').errors.pattern"
+        >The name must begin with a capital letter</span>
+      </div>
+    </div>
+
+
+    <div class = "form-controll">
+      <label>Возраст: </label>
+      <input type="text" formControlName="age" placeholder="Age">
+      <div class="validation"
+           *ngIf="form.get('age').invalid && form.get('age').touched"
+      >
+        <span
+          *ngIf="form.get('age').errors.notAreEqual"
+        >The age field must consist of numbers</span>
+      </div>
+    </div>
+
+
+    <button class="btn" type="submit" [disabled]="form.invalid">Сохранить</button>
+  </form>
+
+
+
+  <!--<button class="btn" (click)="save()">save</button>-->
+  <!--<button class="btn" (click)="getE()">get element</button>-->
+  <button class="btn" (click)="clear()">clear</button>
+  <!--<button class="btn" (click)="removeE()">remove element</button>-->
+</div>
+

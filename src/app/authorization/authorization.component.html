@@ -1,0 +1,47 @@
+<div>
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Авторизация</h1>
+
+    <!--<pre>{{ form.get('surname').errors | json }}</pre>-->
+
+    <div class = "form-controll">
+      <label>Email: </label>
+      <input type="email" formControlName="email" placeholder="Email">
+      <div class="validation"
+           *ngIf="form.get('email').invalid && form.get('email').touched"
+      >
+        <span
+          *ngIf="form.get('email').errors.required"
+        >The email field cannot be empty</span>
+
+        <span
+          *ngIf="form.get('email').errors.email"
+        >Incorrect email</span>
+      </div>
+    </div>
+
+
+    <div class = "form-controll">
+      <label>Пароль: </label>
+      <input type="password" formControlName="password" placeholder="Password">
+      <div class="validation"
+           *ngIf="form.get('password').invalid && form.get('password').touched"
+      >
+        <span
+          *ngIf="form.get('password').errors.required"
+        >The password field cannot be empty</span>
+      </div>
+    </div>
+
+    <button class="btn" type="submit" [disabled]="form.invalid">Войти</button>
+  </form>
+
+
+  <!--<button class="btn" (click)="get()">get</button>
+  <button class="btn" (click)="post()">post</button>-->
+  <!--<button class="btn" (click)="save()">save</button>-->
+  <!--<button class="btn" (click)="getE()">get element</button>-->
+  <!-- <button class="btn" (click)="clear()">clear</button>-->
+  <!--<button class="btn" (click)="removeE()">remove element</button>-->
+</div>
+
