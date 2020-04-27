@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const jwt = require('jsonwebtoken');
+const home = require("./home");
 
 const secretKey = "secret";
 

@@ -20,10 +20,14 @@ mongoose.connect("mongodb://localhost:27017/user",
         console.log("Всё ОК");
 });
 
+module.exports.createHome = function (user){
 
-/*let newUser = new User({
+}
+
+
+let newUser = new User({
     _id: new mongoose.Types.ObjectId(),
-    email: "zz@zz",
+    email: "q@q",
     password: "1",
     surname: "As",
     name: null,
@@ -55,7 +59,7 @@ for(let h of arrHome){
 newUser.save(function (err, user) {
     if (err) throw err;
     console.log(user)
-});*/
+});
 
 
 
@@ -66,9 +70,9 @@ newUser.save(function (err, user) {
     });*/
 
 // 5ea1a90c5a4bdd03c558d065
-User.findById("5ea1a90c5a4bdd03c558d065").populate('home').exec((err,r) => {
+/*User.findById("5ea1a90c5a4bdd03c558d065").populate('home').exec((err,r) => {
     console.log(r)
-});
+});*/
 /*User.findById("5ea1a90c5a4bdd03c558d065").populate({path:'home', populate:{path: 'rooms'}}).exec((err,r) => {
     console.log(r)
 });*/
