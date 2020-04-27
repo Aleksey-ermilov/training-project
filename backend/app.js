@@ -28,22 +28,27 @@ app.post("/registration", (request, response) => {
     let user = request.body;
 
     let newUser = new User({
+        _id: new mongoose.Types.ObjectId(),
         email: user.email,
         password: user.password,
         surname: user.surname,
         name: user.name,
         age: user.age,
         gender: user.gender,
+        home: []
     });
+    home.createHome(newUser);
+
 
     User.findOne({email: newUser.email}, function(user) {
         if (user === null){
+
             newUser.save(function (err, user) {
                 if (err) {
                     response.send({success:false, message: err});
                     throw err;
                 }
-
+                home.findHomeByIdUser(user._id)
                 response.send({success:true, message: 'Пользователь зарегестрирован', user: user});
             });
         }else {

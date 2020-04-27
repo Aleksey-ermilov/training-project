@@ -14,24 +14,17 @@ let arrHome = module.exports.arrHome = homeJson.map(h => ({
 
 
 
-mongoose.connect("mongodb://localhost:27017/user",
+/*mongoose.connect("mongodb://localhost:27017/user",
     { useUnifiedTopology: true, useNewUrlParser: true  },
     function (err) {
         if (err) throw err;
         console.log("Всё ОК");
-});
+
+});*/
+
+
 
 module.exports.createHome = function (user){
-    user = new User({
-        _id: new mongoose.Types.ObjectId(),
-        email: "q@q",
-        password: "1",
-        surname: "As",
-        name: null,
-        age: "12",
-        gender: null,
-    });
-
     for(let h of arrHome){
         let home = new Home({
             _id: new mongoose.Types.ObjectId(),
@@ -51,16 +44,17 @@ module.exports.createHome = function (user){
         }
 
         home.save();
-        newUser.home.push(home._id)
+        user.home.push(home._id)
     }
-    user.save(function (err, user) {
-        if (err) throw err;
-        console.log(user)
+};
+
+
+
+module.exports.findHomeByIdUser = function (id) {
+    User.findById(id).populate('home').exec((err,r) => {
+        console.log(r)
     });
-
-}
-
-
+};
 
 
 
@@ -70,19 +64,11 @@ module.exports.createHome = function (user){
         console.log(r)
     });*/
 
-// 5ea1a90c5a4bdd03c558d065
 /*User.findById("5ea1a90c5a4bdd03c558d065").populate('home').exec((err,r) => {
     console.log(r)
 });*/
+
 /*User.findById("5ea1a90c5a4bdd03c558d065").populate({path:'home', populate:{path: 'rooms'}}).exec((err,r) => {
     console.log(r)
 });*/
 
-/*db.Project.find()
-    .populate({
-        path: 'task',
-        populate: { path: 'user_id'}
-    })
-    .exec(async(error,results)=>{
-
-    })*/
