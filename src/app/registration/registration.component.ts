@@ -20,8 +20,6 @@ export class RegistrationComponent implements OnInit {
   form: FormGroup;
   user: User;
 
-  urlServer = "http://localhost:3000/registration";
-
   //EMAIL_PATTERN = '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$';
 
   password: string;
@@ -74,7 +72,8 @@ export class RegistrationComponent implements OnInit {
     };
 
     this.httpClient.post(
-        "http://localhost:3000/registration",
+        //"http://localhost:3000/registration",
+        "http://localhost:3000/user/registration",
         this.user
     ).subscribe((data: any) => {
       if (data.success){

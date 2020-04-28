@@ -90,7 +90,8 @@ export class EditUserComponent implements OnInit {
       };
 
     this.httpClient.post(
-        "http://localhost:3000/editUser",
+        //"http://localhost:3000/editUser",
+        "http://localhost:3000/user/editUser",
         user
     ).subscribe((data: any) => {
 

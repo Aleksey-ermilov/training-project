@@ -40,7 +40,9 @@ export class AuthorizationComponent implements OnInit {
       password: this.form.value.password
     };
     console.log(auth);
-    this.httpClient.post("http://localhost:3000/authorization",
+    this.httpClient.post(
+        // "http://localhost:3000/authorization",
+        "http://localhost:3000/user/authorization",
         auth
         )
         .subscribe((data: any) => {
