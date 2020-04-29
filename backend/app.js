@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const user = require("./routes/user");
+const config = require("./config/config");
 
 
 const app = express();
@@ -13,10 +14,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-mongoose.connect("mongodb://localhost:27017/user",
+mongoose.connect(
+    config.db,
     { useUnifiedTopology: true, useNewUrlParser: true  },
-    function (err) {
-    if (err) throw err;
+    (err) => {
+        if (err) throw err;
+        console.log("БД подключена")
 });
 
 app.use("/user", user);
